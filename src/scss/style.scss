@@ -1,0 +1,12 @@
+
+@import './global/mixins';
+@import './global/variables';
+@import './global/global';
+
+@import '@fortawesome/fontawesome-free';
+@import 'bootstrap-4-grid';
+//components
+@import './components/buttons';
+
+
+@import './components/currencyConverter';

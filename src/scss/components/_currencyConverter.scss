@@ -1,0 +1,142 @@
+.xd2 {
+
+    color: white;
+
+    background-image: url('../../images/currency-converter-bg.jpg');
+    background-size: cover;
+    background-position: center;
+
+}
+
+.currency-converter {
+    $field_min_height: 58px;
+
+    &__title {
+        text-align: center;
+    }
+
+    &__form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        @include media-max($md) {
+            justify-content: flex-start;
+        }
+
+        >* {
+            margin-right: 30px;
+            margin-bottom: 30px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            @include media-max($md) {
+                margin-right: 0;
+            }
+        }
+
+        &__submit {
+            align-self: flex-end;
+            min-height: $field_min_height;
+            padding: 15px 40px;
+
+            @include media-max($md) {
+                order: 3;
+            }
+
+        }
+
+
+
+    }
+
+    &__form-field {
+        @include media-max($md) {
+            width: 100%;
+
+        }
+
+        input {
+            padding: 15px 10px;
+            background-color: transparent;
+            border: 2px solid $light_1;
+            outline: 0;
+            border-radius: 5px;
+            color: $light_1;
+            @include font-style(18px, 600);
+            min-height: $field_min_height;
+            width: 100%;
+
+            &:focus {
+                border-color: $red_1;
+            }
+
+        }
+
+        &__title {
+            display: block;
+            @include font-style(15px, 500);
+            margin-bottom: 5px;
+
+        }
+    }
+
+    &__field-swapper {
+        @include font-awesome;
+        background-color: transparent;
+        border-width: 0;
+        cursor: pointer;
+        color: $light_1;
+        @include font-calc(30px);
+        align-self: flex-end;
+        padding: $field_min_height/4 0;
+
+        @include media-max($md) {
+            order: 2;
+            margin-left: auto;
+            margin-right: 30px;
+        }
+    }
+
+
+
+    &__result {
+        @include bg-opacity($red_1, .6);
+        padding: 20px;
+        margin-top: 40px;
+        text-align: center;
+
+        &__title {
+            display: block;
+            @include font-style(22px, 600);
+
+            @include media-max($xs) {
+                @include font-calc(18px);
+            }
+        }
+
+        &__from {
+            margin-top: 30px;
+            display: block;
+            @include font-style(27px, 300);
+
+            @include media-max($xs) {
+                @include font-calc(22px);
+            }
+        }
+
+        &__to {
+            line-height: 1.2;
+            display: block;
+            @include font-style(50px, 700);
+
+            @include media-max($xs) {
+                @include font-calc(40px);
+            }
+        }
+    }
+
+}

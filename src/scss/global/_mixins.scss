@@ -1,0 +1,92 @@
+
+
+
+@mixin center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin font-calc($size) {
+    $remSize: $size / $base_font_size;
+    font-size: #{$remSize}rem;
+}
+
+@mixin font-style($size, $weight) {
+    @include font-calc($size);
+    font-weight: $weight;
+}
+
+
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin size-box($size) {
+    width: $size;
+    height: $size;
+}
+
+@mixin basic-transition {
+    transition: all .3s ease-in-out;
+}
+
+@mixin font-awesome {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+@mixin lhCrop($line-height) {
+    &::before {
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+        margin-top: calc((1 - #{$line-height}) * 0.5em);
+    }
+    &::after {
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+        margin-bottom: calc((1 - #{$line-height}) * 0.5em);
+    }
+}
+
+
+// media query
+
+@mixin media-min($size) {
+    @media (min-width: $size + 1px) {
+        @content;
+    }
+}
+
+@mixin media-max($size) {
+    @media (max-width: $size) {
+        @content;
+    }
+}
+
+@mixin media-double($range1, $size1, $range2, $size2, ) {
+   
+    @media ( #{$range1}-width: $size1) and ( #{$range2}-width: $size2){
+        @content;
+    }
+}
+
+
+@mixin clearfix {
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+
+
+@mixin bg-opacity($color,$opacity) {
+    background: $color; /* The Fallback */
+    background: rgba($color, $opacity);
+}

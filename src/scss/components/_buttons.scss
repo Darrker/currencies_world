@@ -1,0 +1,14 @@
+.btn{
+    background-color: transparent;
+    border-width: 0px;
+    @include font-style(15px, 700);
+    border-radius: 5px;
+    cursor: pointer;
+    color: $light_1;
+    padding: 12px 30px;
+
+    &--secondary{
+        background-color: $red_1;
+    }
+
+}
