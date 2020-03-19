@@ -1,7 +1,13 @@
 import React from 'react';
 import Chart from 'chart.js';
 import CurrencyConverter from './js/components/currencyConverter/CurrencyConverter';
+import CurrenciesTable from './js/components/currenciesTable/CurrenciesTable';
+import PopularCurrencies from './js/components/popularCurrencies/PopularCurrencies';
+import ListOfCurrencies from './js/components/listOfCurrencies/ListOfCurrencies';
+import SectionSwitcher from './js/components/sectionSwitcher/SectionSwitcher';
 import {NbpApi} from './js/nbp_api/nbpAPI';
+
+
 
 import './scss/style.scss';
 
@@ -79,6 +85,33 @@ class App extends React.Component{
     return(
       <div className="App">
         <CurrencyConverter/>
+        <div className="container">
+          <div className="row">
+            <ListOfCurrencies/>
+          </div>
+          <div className="row justify-content-center">
+              <div className="col-md-10">
+              <PopularCurrencies/> 
+              </div>
+          </div>
+          <div className="row">
+
+
+            <div className="col-md-8">
+              <CurrenciesTable/>
+
+            </div>
+
+            <div className="col-md-4">
+              <h3>Popularne waluty</h3>
+
+              <SectionSwitcher/>
+
+              <CurrenciesTable/>
+            </div>
+          </div>
+        </div>
+     
         <div className="container">
           <div className="col-6">
           <canvas ref={this.ref}></canvas>

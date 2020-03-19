@@ -90,3 +90,7 @@
     background: $color; /* The Fallback */
     background: rgba($color, $opacity);
 }
+
+@mixin  pretty-shadow {
+    box-shadow: 0 5px 16px 0 rgba(0,0,0,.1);
+}

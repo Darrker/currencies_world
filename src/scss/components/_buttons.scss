@@ -1,4 +1,7 @@
 .btn{
+
+    $root: &;
+
     background-color: transparent;
     border-width: 0px;
     @include font-style(15px, 700);
@@ -9,6 +12,21 @@
 
     &--secondary{
         background-color: $red_1;
+    }
+
+    &--light{
+        background-color: $light_1;
+        color: $red_1;
+
+        &#{$root}{
+
+            &--only-border{
+                background-color: transparent !important;
+                border: 1px solid $light_1;
+                color: $light_1;
+            }
+
+        }
     }
 
 }

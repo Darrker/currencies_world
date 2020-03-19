@@ -1,0 +1,54 @@
+
+.popular-currency{
+    padding: 25px 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $blue_3;
+    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+    @include basic-transition;
+    $root: &;
+
+    &:hover{
+        background-color: $blue_3;
+
+        #{$root}{
+            &__name, &__value{
+                color: white;
+            }
+         
+
+        }
+    }
+
+  
+
+    &__name{
+        @include font-style(18px, 600);
+        line-height: 1;
+        margin-bottom: 15px;
+        @include basic-transition;
+    }
+    &__value{
+        @include font-style(24px, 800);
+        line-height: 1;
+        @include basic-transition;
+       
+    }
+
+    @include media-max($md){
+        padding: 15px 20px;
+
+        &__name{
+            @include font-style(15px, 600);
+        }
+        &__value{
+            @include font-style(18px, 800);
+            
+           
+        }
+
+     }
+}

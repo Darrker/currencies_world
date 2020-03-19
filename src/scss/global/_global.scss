@@ -2,7 +2,7 @@ body{
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-color: white;
+    background-color: $light_1;
     margin: 0;
     font-family: 'Poppins', sans-serif;
     font-size: $base_font_size;
@@ -41,6 +41,10 @@ body{
 
 }
 
+.responsive-table{
+    overflow-x: auto;
+    @include pretty-shadow;
+}
 *{
     outline: 0;
     box-sizing: border-box ;

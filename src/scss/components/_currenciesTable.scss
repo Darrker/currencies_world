@@ -1,0 +1,65 @@
+.currencies-table {
+    width: 100%;
+    text-align: left;
+    @include font-calc(15px);
+   
+    $root: &;
+
+    &--mini{
+        @include font-calc(13px);
+        
+        #{$root}{
+            &__header{
+                padding: 7px 12px;
+                @include font-style(13px,600);
+            }
+
+            &__cell{
+                padding: 10px 12px;
+            }
+        }
+    }
+
+    &__header {
+        padding: 10px 15px;
+        cursor: pointer;
+        color: $light_1;
+        background-color: $red_3;
+        ;
+        border: 1px solid $red_3;
+        @include basic-transition;
+
+
+        &:hover {
+            background-color: $red_2;
+        }
+    }
+
+
+
+        &__row {
+
+            cursor: pointer;
+            box-sizing: border-box;
+            @include basic-transition;
+            &:nth-child(even) {
+                background-color: $light_2;
+            }
+
+            &:hover {
+                @include bg-opacity($blue_1, .05);
+              
+            }
+
+        }
+
+        &__cell{
+            box-sizing: border-box;
+            padding: 25px 10px;
+         
+         
+        }
+    
+
+}
+

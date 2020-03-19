@@ -1,0 +1,27 @@
+.list-of-currencies{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    @include pretty-shadow;
+
+    width: 220px;
+    max-height: 350px;
+    overflow-y: auto;
+
+    &__item{
+        padding: 10px;
+        @include font-style(14px,600);
+        cursor: pointer;
+
+        @include basic-transition;
+
+        &:nth-child(odd){
+            background-color: $light_2;
+        }
+
+        &:hover{
+            background-color: $red_2;
+            color: white;
+        }
+    }
+}
