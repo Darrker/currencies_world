@@ -1,0 +1,32 @@
+.currency-chooser-wrapper{
+    position: relative;
+    display: inline-block;
+}
+
+.currency-chooser{
+    @include pretty-shadow;
+   
+    background-color: $light_1;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 220px;
+    
+  
+    z-index: 999;
+
+    &__input{
+        padding: 15px;
+        border-color: $red_2;
+        border: 0px;
+        border-bottom: 2px solid;
+        width: 100%;
+        color: $dark_2;
+        @include font-style(14px, 500);
+    }   
+
+    .list-of-currencies{
+        overflow-y: auto;
+        max-height: 250px;
+    }
+}

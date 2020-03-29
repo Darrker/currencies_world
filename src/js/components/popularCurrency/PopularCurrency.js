@@ -6,8 +6,8 @@ class PopularCurrency extends React.Component{
         return(
          
                     <li className="popular-currency">
-                        <span className="popular-currency__name"> EUR</span>
-                        <span className="popular-currency__value"> 4.31</span>
+                        <span className="popular-currency__name"> {this.props.name}</span>
+                        <span className="popular-currency__value"> {this.props.value.toFixed(2)}</span>
                     </li>
          
         );

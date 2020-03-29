@@ -5,9 +5,9 @@ import CurrenciesTable from './js/components/currenciesTable/CurrenciesTable';
 import PopularCurrencies from './js/components/popularCurrencies/PopularCurrencies';
 import ListOfCurrencies from './js/components/listOfCurrencies/ListOfCurrencies';
 import SectionSwitcher from './js/components/sectionSwitcher/SectionSwitcher';
-import {NbpApi} from './js/nbp_api/nbpAPI';
-
-
+import NbpAPI from './js/nbp_api/nbpAPI';
+import {fetchAllCurrencies} from './js/actions/fetchAllCurrencies';
+import {connect} from 'react-redux';
 
 import './scss/style.scss';
 
@@ -21,77 +21,96 @@ class App extends React.Component{
     this.ref = React.createRef();
     this.state = {data: ''};
    
-   
+    
 
   }
   componentDidUpdate(){
-
-    if(this.state.data != ''){
-      console.log('didUpdate',this.state.data.data.rates);
-    this.myChart.data.labels = this.state.data.data.rates.map(function(elem) {return elem.effectiveDate });
-      this.myChart.data.datasets[0].label = 'GPB'
+    
+    console.log('didUpdate',this.props.allCurrencies);
+    // if(this.state.data != ''){
+     
+    // this.myChart.data.labels = this.state.data.data.rates.map(function(elem) {return elem.effectiveDate });
+    //   this.myChart.data.datasets[0].label = 'GPB'
    
   
      
-      this.myChart.data.datasets[0].data = this.state.data.data.rates.map(function(elem) {return elem.mid});
+    //   this.myChart.data.datasets[0].data = this.state.data.data.rates.map(function(elem) {return elem.bid});
 
 
-      this.myChart.update();
-    }
+    //   this.myChart.update();
+    // }
  
   }
-   async componentDidMount(){
-    var nbpresult =  await NbpApi('rates/a/gbp/2011-01-31/2012-01-31');
+
+
+   componentDidMount(){
+  
+    
+     this.props.fetchAllCurrencies();
+
     
 
   
   
-    this.myChart = new Chart(this.ref.current, {
-      type: 'line',
-      showXLabels: 10 ,  
-      options: {
-        scales: {
-            xAxes: [{
-                ticks: {
-                   maxTicksLimit: 5,
-                }
-            }]
-        }
-    },
-      data: {
-        labels: [1,2],
-        showXLabels: 10 ,
-        datasets: [{
-            label: '# of Votes',
-            data: [] ,
+    // this.myChart = new Chart(this.ref.current, {
+    //   type: 'line',
+    //   showXLabels: 10 ,  
+    //   options: {
+    //     scales: {
+    //         xAxes: [{
+    //             ticks: {
+    //                maxTicksLimit: 5,
+    //             }
+    //         }]
+    //     }
+    // },
+    //   data: {
+    //     labels: [1,2],
+    //     showXLabels: 10 ,
+    //     datasets: [{
+    //         label: '# of Votes',
+    //         data: [] ,
           
          
-            borderColor: [
-                'rgba(255, 0, 0, 1)',
+    //         borderColor: [
+    //             'rgba(255, 0, 0, 1)',
           
-            ],
-            pointBackgroundColor: 'rgba(255, 255, 255, 1)',
-            borderWidth: 1
-        },
+    //         ],
+    //         pointBackgroundColor: 'rgba(255, 255, 255, 1)',
+    //         borderWidth: 1
+    //     },
     
-      ]
-    },
-    });
-    this.setState({data: nbpresult });
+    //   ]
+    // },
+    // });
+    // this.setState({data: this.props.radzio });
    
   }
  
   render(){
     return(
       <div className="App">
-        <CurrencyConverter/>
+              {
+                  this.props.allCurrencies ?
+        <CurrencyConverter allCurrencies={this.props.allCurrencies} defaultFromCurrency="PLN" defaultToCurrency="USD"/>
+        : ''
+
+      }
         <div className="container">
           <div className="row">
-            <ListOfCurrencies/>
+           
           </div>
           <div className="row justify-content-center">
               <div className="col-md-10">
-              <PopularCurrencies/> 
+                {
+                  this.props.allCurrencies ?
+                    <PopularCurrencies allCurrencies={this.props.allCurrencies} chosenCurrencies={['USD', 'EUR', 'GBP', 'CHF', 'JPY']} defaultCurrencyToConvert="PLN"/> 
+
+                  : ''
+
+                }
+                
+            
               </div>
           </div>
           <div className="row">
@@ -127,4 +146,10 @@ class App extends React.Component{
   }
 }
 
-export default App;
+const mapStateToProps = state =>{
+  return{
+    allCurrencies: state.currencies ? state.currencies : false
+  };
+}
+
+export default connect(mapStateToProps,{fetchAllCurrencies})(App);
