@@ -1,4 +1,7 @@
-export  function allCurrencies(state = [], action) {
+
+
+
+  export  function allCurrencies(state = [], action) {
     switch (action.type) {
       case 'ALL_CURRENCIES':
   

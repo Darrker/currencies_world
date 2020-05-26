@@ -1,0 +1,63 @@
+.line-chart__legend{
+    display: flex;
+    
+    @include media-max($sm){
+        flex-direction: column-reverse;
+        justify-content: center;;
+        align-items: center;
+        padding: 20px 0;
+    }
+}
+
+.line-chart-currencies{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    &__item{
+        @include pretty-shadow;
+        padding: 10px;
+        margin: 10px;
+        display: inline-flex;
+        align-items: center;
+        &__color{
+            width: 30px;
+            height: 20px;
+            border-radius: 5px;
+            flex-shrink: 0;
+        }
+
+        &__name{
+            @include font-style(14px, 700);
+            margin: 0 20px;
+        }
+
+        &__exit{
+            background: transparent;
+            border-width: 0;
+            @include font-style(14px, 600);
+            color: $red_2;
+            cursor: pointer;
+        }
+
+        @include media-max($md){
+            padding: 5px;
+            margin: 5px;
+
+            &__color{
+                width: 15px;
+                height: 15px;
+            }
+
+            &__name{
+                @include font-calc(12px);
+                margin: 0 10px;
+            }
+    
+        }
+    }
+}

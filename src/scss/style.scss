@@ -1,10 +1,15 @@
 
+// @import '@fortawesome/fontawesome-free';
+
 @import './global/mixins';
 @import './global/variables';
 @import './global/global';
 
-@import '@fortawesome/fontawesome-free';
+
 @import 'bootstrap-4-grid';
+
+@import './global/header';
+@import './global/footer';
 //components
 @import './components/buttons';
 
@@ -16,3 +21,8 @@
 @import './components/_listOfCurrencies';
 @import './components/_sectionSwitcher';
 @import './components/_currencyChooser';
+@import './components/_lineChart';
+@import './components/_lineChartMenu';
+@import './components/_lineChartCurrencies';
+@import './components/_preloader';
+

@@ -1,0 +1,26 @@
+.header {
+
+    color: $light_1;
+    background-image: url('../../images/currency-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 30px;
+
+    &__top{
+        display: flex;
+        padding: 20px 0;
+        align-items: center;
+    }
+
+    &__logo{
+        width: 200px;
+        height: auto;;
+    }
+
+    &__app-motto{
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+        text-indent: -999999px;
+    }
+}

@@ -1,0 +1,49 @@
+.footer{
+    padding: 30px 0;
+    background-color: $blue_3;
+    color: $light_1;
+    @include font-calc(15px);
+
+    >*{
+        display: flex;
+        align-items: center;
+
+        @include media-max($md){
+            flex-direction: column;
+        }
+
+    }
+
+    &__logo{
+        width: 150px;
+        
+    }
+
+    &__author{
+        margin: 0 50px ;
+
+        @include media-max($md){
+            margin: 20px 0  ;
+        }
+    }
+
+    &__github-link{
+        text-decoration: none;
+        color: $red_1;
+        font-weight: 600;
+        margin-left: auto;
+        color: white !important;
+        @include media-max($md){
+            margin: 0 ;
+        }
+
+        &__icon{
+            @include font-calc(20px);
+            margin-left: 10px;
+        }
+    
+
+    }
+
+
+}

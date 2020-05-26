@@ -31,9 +31,7 @@ class NbpAPI {
     return response.data.rates[0].bid;
   }
 
-  getLast3Days(){
-    return  this.axios.get(`last/3/?format=json`);
-  }
+
   getLast7Days(){
     return  this.axios.get(`last/7/?format=json`);
   }
@@ -43,7 +41,11 @@ class NbpAPI {
    
     return  this.getDateRange(dateFrom, Moment(new Date()).format('YYYY-MM-DD') );
   }
-
+  getLast3Months(){
+    let dateFrom = Moment(new Date()).subtract(3,'months').format('YYYY-MM-DD');
+    
+    return this.getDateRange(dateFrom, Moment(new Date()).format('YYYY-MM-DD') );;
+  }
   getLastHalfYear(){
     let dateFrom = Moment(new Date()).subtract(6,'months').format('YYYY-MM-DD');
     

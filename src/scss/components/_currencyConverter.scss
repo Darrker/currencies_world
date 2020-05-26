@@ -1,12 +1,4 @@
-.xd2 {
 
-    color: white;
-
-    background-image: url('../../images/currency-converter-bg.jpg');
-    background-size: cover;
-    background-position: center;
-
-}
 
 .currency-converter {
     $field_min_height: 58px;
@@ -101,7 +93,7 @@
     }
 
     &__field-swapper {
-        @include font-awesome;
+       
         background-color: transparent;
         border-width: 0;
         cursor: pointer;

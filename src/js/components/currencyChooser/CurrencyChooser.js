@@ -32,23 +32,25 @@ class CurrencyChooser extends React.Component{
     }
 
     static getDerivedStateFromProps(props, state) {
-        
-        if(props.externalInputValue !== state.inputValue){
-            const filteredList = props.list.filter(item => {
-                const re = new RegExp(props.externalInputValue, 'gi');
-                const codeMatch = re.test(item.code);
-                const nameMatch =  re.test(item.currency);
-                return codeMatch || nameMatch;
-             });
-          
-             return(
-                 {
-                     inputValue: props.externalInputValue,
-                     filteredList: filteredList
-                 }
-                 
-                 );
+        if(props.externalInputValue){
+            if(props.externalInputValue !== state.inputValue){
+                const filteredList = props.list.filter(item => {
+                    const re = new RegExp(props.externalInputValue, 'gi');
+                    const codeMatch = re.test(item.code);
+                    const nameMatch =  re.test(item.currency);
+                    return codeMatch || nameMatch;
+                 });
+              
+                 return(
+                     {
+                         inputValue: props.externalInputValue,
+                         filteredList: filteredList
+                     }
+                     
+                     );
+            }
         }
+      
 
         return false;   
 

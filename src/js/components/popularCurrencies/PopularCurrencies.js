@@ -30,11 +30,11 @@ class PopularCurrencies extends React.Component{
 
     renderPopularCurrencies = () =>{
         if(this.state.popularCurrencies.length>0){
-         let comparedCurrencyData = this.props.allCurrencies.find(item => item.code == this.state.comparedCurrencyName);
-         let defaultComaparedCurrencyData = this.props.allCurrencies.find(item => item.code == this.props.defaultCurrencyToConvert);
+         let comparedCurrencyData = this.props.allCurrencies.find(item => item.code === this.state.comparedCurrencyName);
+         let defaultComaparedCurrencyData = this.props.allCurrencies.find(item => item.code === this.props.defaultCurrencyToConvert);
          var temp =  this.state.popularCurrencies.map(function(item,index){
-                 if(item.code == comparedCurrencyData.code){
-                     console.log('w środku');
+                 if(item.code === comparedCurrencyData.code){
+                    
                     return(
                         <PopularCurrency name={defaultComaparedCurrencyData.code} value={defaultComaparedCurrencyData.bid /comparedCurrencyData.bid  } key={index}/>
                     );

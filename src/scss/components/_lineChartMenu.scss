@@ -1,0 +1,82 @@
+
+.chart-menu{
+    margin: 0 0 0 15px;
+    padding: 15px 15px;
+    list-style: none;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $red_2;
+
+    >*{
+        margin-bottom: 15px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+
+    @include media-max($sm){
+        margin: 15px 0 0 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    &__item{
+        border: 1px solid $light_1;
+        @include font-style(11px,500);
+        text-align: center;
+  
+        padding: 5px;
+        color: $light_1;
+        cursor: pointer;
+        @include basic-transition;
+    
+
+        &:hover, &--is-active{
+            background-color: $light_1;
+            color: $red_2;
+        }
+
+        @include media-max($sm){
+            margin: 5px ;
+            align-self: stretch;
+            padding: 5px 10px;
+        }
+
+        
+    }
+
+    .date-range-wrapper{
+        position: relative;
+        .DateRangePicker{
+            position: absolute;
+            top: 40px;
+            right: 0;
+            z-index: 99;
+            background-color: $light_1;
+            @include pretty-shadow;
+
+            @include media-max($sm){
+                right: -48px;
+            }
+           
+
+        }
+    }
+}
+
+.DateRangePicker__CalendarSelection {
+
+    &--is-pending{
+        background-color: $red_1;
+    }
+    &--is-segment{
+        background-color: $red_2;
+    }
+}
+
+.DateRangePicker__CalendarSelection{
+    background-color: $red_2;
+}
+

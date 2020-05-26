@@ -1,0 +1,46 @@
+.line-chart{
+
+
+ 
+
+    .line-chart-currencies{
+        width: 100%;
+    }
+
+    &__data{
+        display: flex;
+        align-items: center;
+        .chart{
+            min-width: 0;
+        }
+
+        @include media-max($sm){
+            flex-direction: column;
+        }
+    }
+
+    &__add-new{
+        flex-shrink: 0;
+        
+        align-self: center;
+        &__button{
+            
+            flex-shrink: 0;
+            @include font-style(14px, 600);
+        }
+
+        .currency-chooser{
+            right: 0;
+            left: auto;
+        }
+
+        @include media-max($sm){
+            margin-bottom: 20px;
+
+            &__button{
+                @include font-style(13px, 700);
+            }
+        }
+    }
+}
+

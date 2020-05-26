@@ -6,7 +6,6 @@ export  function fetchAllCurrencies (){
     
 
         var nbpresult =  await NbpAPI.getAllCurrencies();
-
       
         dispatch({
             type: 'ALL_CURRENCIES',

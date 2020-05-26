@@ -1,10 +1,7 @@
-export  function currencyData(state = [], action) {
-    switch (action.type) {
-      case 'FETCH_DATA':
-        console.log(action.payload);
-        return Object.assign({}, state, action.payload);
+import {combineReducers} from 'redux';
+import {currenciesData} from '../reducers/currenciesData';
+import {allCurrencies} from '../reducers/allCurrencies';
 
-      default:
-        return state
-    }
-  }
+export default combineReducers({
+  currenciesData, allCurrencies
+});

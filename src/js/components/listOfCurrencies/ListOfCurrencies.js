@@ -34,7 +34,6 @@ class ListOfCurrencies extends React.Component{
     }
 
     render(){
-
         if(this.props.list.length){ 
 
             return(
